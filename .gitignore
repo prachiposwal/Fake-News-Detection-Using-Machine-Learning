@@ -1,0 +1,29 @@
+
+# Ignore datasets
+data/raw/
+data/processed/
+
+# Ignore temporary training artifacts
+models/X_train_tfidf.pkl
+models/X_test_tfidf.pkl
+models/y_train.pkl
+models/y_test.pkl
+
+# Python cache
+__pycache__/
+.ipynb_checkpoints/
+
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
