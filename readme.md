@@ -1,3 +1,7 @@
+## 🚀 Live Demo
+
+🔗 https://your-app-name.streamlit.app
+
 # 📰 Fake News Detection System
 
 A Machine Learning-based web application that detects whether a news article is **Real** or **Fake** using Natural Language Processing (NLP) and a Linear Support Vector Machine (SVM). The application is deployed using **Streamlit** and provides a simple interface for users to classify news articles.
