@@ -135,7 +135,39 @@ streamlit run app.py
 
 ## 📸 Screenshots
 
-(Add screenshots after uploading the project to GitHub.)
+## 📷 Screenshots
+
+### Home Page
+
+![Home](images/homepage.png)
+
+---
+
+### Fake News Prediction
+
+![Fake](images/fake_prediction.png)
+
+---
+
+### Real News Prediction
+
+## 📷 Screenshots
+
+### Home Page
+
+![Home](images/homepage.png)
+
+---
+
+### Fake News Prediction
+
+![Fake](images/fake_prediction.png)
+
+---
+
+### Real News Prediction
+
+## home page
 
 ---
 
