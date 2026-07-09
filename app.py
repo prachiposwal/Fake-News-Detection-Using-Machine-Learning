@@ -7,56 +7,53 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-import os
+# -------------------------------------------------
+# Download NLTK Resources (only if not available)
+# -------------------------------------------------
 
-st.write("Current Directory:", os.getcwd())
+try:
+    nltk.data.find("corpora/stopwords")
+except LookupError:
+    nltk.download("stopwords")
 
-st.write("Files in Root:")
-st.write(os.listdir("."))
-
-if os.path.exists("models"):
-    st.write("Files inside models:")
-    st.write(os.listdir("models"))
-else:
-    st.error("❌ models folder NOT FOUND")
-
-# ---------------------------------------
-# Download NLTK Resources
-# ---------------------------------------
-
-nltk.download("stopwords")
-nltk.download("wordnet")
+try:
+    nltk.data.find("corpora/wordnet")
+except LookupError:
+    nltk.download("wordnet")
 
 stop_words = set(stopwords.words("english"))
 lemmatizer = WordNetLemmatizer()
 
-# ---------------------------------------
-# Text Preprocessing Function
-# ---------------------------------------
+# -------------------------------------------------
+# Page Configuration
+# -------------------------------------------------
+
+st.set_page_config(
+    page_title="Fake News Detection System",
+    page_icon="📰",
+    layout="centered"
+)
+
+# -------------------------------------------------
+# Text Cleaning Function
+# -------------------------------------------------
 
 def clean_text(text):
 
     text = str(text)
 
-    # lowercase
     text = text.lower()
 
-    # remove URLs
     text = re.sub(r"http\S+|www\S+", "", text)
 
-    # remove HTML tags
     text = re.sub(r"<.*?>", "", text)
 
-    # remove punctuation
     text = text.translate(str.maketrans("", "", string.punctuation))
 
-    # remove numbers
     text = re.sub(r"\d+", "", text)
 
-    # tokenize
     words = text.split()
 
-    # remove stopwords + lemmatize
     words = [
         lemmatizer.lemmatize(word)
         for word in words
@@ -65,71 +62,66 @@ def clean_text(text):
 
     return " ".join(words)
 
-
-# ---------------------------------------
-# Page Configuration
-# ---------------------------------------
-
-st.set_page_config(
-    page_title="Fake News Detection System",
-    page_icon="📰",
-    layout="centered"
-)
-
-# ---------------------------------------
+# -------------------------------------------------
 # Load Model
-# ---------------------------------------
+# -------------------------------------------------
 
 @st.cache_resource
 def load_model():
-   st.write("Loading model...")
-   model = joblib.load("models/final_fake_news_model.pkl")
-   st.write("Model loaded")
 
-   st.write("Loading vectorizer...")
-vectorizer = joblib.load("models/tfidf_vectorizer.pkl")
-st.write("Vectorizer loaded")
+    model = joblib.load("models/final_fake_news_model.pkl")
 
-model, vectorizer = load_model()
+    vectorizer = joblib.load("models/tfidf_vectorizer.pkl")
 
-# ---------------------------------------
+    return model, vectorizer
+
+
+try:
+    model, vectorizer = load_model()
+except Exception as e:
+    st.error("❌ Error loading model or vectorizer.")
+    st.exception(e)
+    st.stop()
+
+# -------------------------------------------------
 # Sidebar
-# ---------------------------------------
+# -------------------------------------------------
 
 st.sidebar.title("📌 About")
 
 st.sidebar.info(
 """
-This project detects whether a news article is **Real** or **Fake** using Machine Learning.
+This application detects whether a news article is **Real** or **Fake** using Machine Learning.
 
 ### Model
-Linear Support Vector Machine (SVM)
+Linear SVM
 
 ### Feature Extraction
 TF-IDF Vectorization
 
 ### Developed Using
+
 - Python
-- Scikit-Learn
+- Scikit-learn
 - Streamlit
 """
 )
 
-# ---------------------------------------
+# -------------------------------------------------
 # Main Title
-# ---------------------------------------
+# -------------------------------------------------
 
 st.title("📰 Fake News Detection System")
 
-st.markdown("""
-Welcome!
+st.write(
+"""
+Paste a complete news article below and click **Predict News**.
+"""
+)
 
-Paste any news article below and the trained Machine Learning model will predict whether the article is **Real** or **Fake**.
-""")
-
-# ---------------------------------------
-# User Input
-# ---------------------------------------
+# -------------------------------------------------
+# Input Box
+# -------------------------------------------------
 
 news = st.text_area(
     "Paste News Article",
@@ -137,40 +129,38 @@ news = st.text_area(
     placeholder="Paste complete news article here..."
 )
 
-# ---------------------------------------
+# -------------------------------------------------
 # Prediction
-# ---------------------------------------
+# -------------------------------------------------
 
 if st.button("🔍 Predict News"):
 
     if news.strip() == "":
-        st.warning("⚠ Please enter a news article.")
+        st.warning("Please enter a news article.")
 
     else:
 
-        # Clean the text first
         cleaned_news = clean_text(news)
 
-        # Convert into TF-IDF features
-        transformed = vectorizer.transform([cleaned_news])
+        transformed_news = vectorizer.transform([cleaned_news])
 
-        # Predict
-        prediction = model.predict(transformed)[0]
+        prediction = model.predict(transformed_news)[0]
 
         st.divider()
-        st.subheader("Prediction")
+
+        st.subheader("Prediction Result")
 
         if prediction == 1:
             st.success("✅ REAL NEWS")
         else:
             st.error("❌ FAKE NEWS")
 
-# ---------------------------------------
+# -------------------------------------------------
 # Footer
-# ---------------------------------------
+# -------------------------------------------------
 
 st.divider()
 
 st.caption(
-"Developed by Prachi | Fake News Detection using Machine Learning"
+    "Developed by Prachi | Fake News Detection using Machine Learning"
 )
