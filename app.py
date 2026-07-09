@@ -7,6 +7,19 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
+import os
+
+st.write("Current Directory:", os.getcwd())
+
+st.write("Files in Root:")
+st.write(os.listdir("."))
+
+if os.path.exists("models"):
+    st.write("Files inside models:")
+    st.write(os.listdir("models"))
+else:
+    st.error("❌ models folder NOT FOUND")
+
 # ---------------------------------------
 # Download NLTK Resources
 # ---------------------------------------
@@ -69,9 +82,13 @@ st.set_page_config(
 
 @st.cache_resource
 def load_model():
-    model = joblib.load("models/final_fake_news_model.pkl")
-    vectorizer = joblib.load("models/tfidf_vectorizer.pkl")
-    return model, vectorizer
+   st.write("Loading model...")
+   model = joblib.load("models/final_fake_news_model.pkl")
+   st.write("Model loaded")
+
+   st.write("Loading vectorizer...")
+vectorizer = joblib.load("models/tfidf_vectorizer.pkl")
+st.write("Vectorizer loaded")
 
 model, vectorizer = load_model()
 
