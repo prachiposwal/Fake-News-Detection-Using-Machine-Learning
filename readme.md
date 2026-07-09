@@ -134,23 +134,25 @@ streamlit run app.py
 ---
 
 
-## 📷 Screenshots
+## 📸 Screenshots
 
-### Home Page
+### 🏠 Home Page
 
-![Home](images/homepage.png)
-
----
-
-### Fake News Prediction
-
-![Fake](images/fake_prediction.png)
+![Home Page](images/imageshome.png.png)
 
 ---
 
-### Real News Prediction
+### ❌ Fake News Prediction
 
-![Real](imagesreal_prediction.png)
+![Fake Prediction](images/imagefake_prediction.png.png)
+
+---
+
+### ✅ Real News Prediction
+
+![Real Prediction](images/imagesreal_prediction.png.png)
+
+
 ---
 
 ## 🔮 Future Improvements
