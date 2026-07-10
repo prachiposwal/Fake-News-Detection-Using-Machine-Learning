@@ -7,12 +7,28 @@
 A Machine Learning-based web application that detects whether a news article is **Real** or **Fake** using Natural Language Processing (NLP) and a Linear Support Vector Machine (SVM). The application is deployed using **Streamlit** and provides a simple interface for users to classify news articles.
 
 ---
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange?logo=scikitlearn)
+![Streamlit](https://img.shields.io/badge/Streamlit-Deployed-red?logo=streamlit)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+- - -
 
 ## 📌 Project Overview
 
 Fake news spreads rapidly through digital platforms and social media, making it difficult for users to verify the authenticity of information.
 
 This project uses **Natural Language Processing (NLP)** techniques to preprocess news articles, convert them into numerical features using **TF-IDF Vectorization**, and classify them using Machine Learning algorithms.
+
+## 🌟 Repository Highlights
+
+- ✅ Complete End-to-End Machine Learning Pipeline
+- ✅ Natural Language Processing (NLP) using TF-IDF
+- ✅ Six Machine Learning Models Compared
+- ✅ Linear SVM selected as the Best Model
+- ✅ Interactive Streamlit Web Application
+- ✅ GitHub Hosted Source Code
+- ✅ Real-Time Fake News Prediction
 
 ---
 
@@ -28,26 +44,43 @@ This project uses **Natural Language Processing (NLP)** techniques to preprocess
 
 ## 📂 Dataset
 
-Dataset: Fake and Real News Dataset
+**Dataset Name:** Fake and Real News Dataset
 
-Features:
+### Dataset Information
 
-- News Text
-- Label (Real / Fake)
+- **Total Records:** 45,752 news articles
+- **Classes:** Real News and Fake News
+- **Feature Used:** News article text
+- **Target Variable:** Label (Real / Fake)
 
-The dataset contains approximately **45,000 news articles**.
+The dataset contains news articles collected from reliable and unreliable sources, making it suitable for supervised text classification tasks.
 
 ---
 
 ## ⚙️ Technologies Used
 
+### Programming Language
 - Python
+
+### Machine Learning
+- Scikit-learn
+
+### Natural Language Processing (NLP)
+- TF-IDF Vectorization
+- CountVectorizer
+
+### Data Analysis
 - Pandas
 - NumPy
-- Scikit-learn
+
+### Data Visualization
 - Matplotlib
 - Plotly
+
+### Model Deployment
 - Streamlit
+
+### Model Serialization
 - Joblib
 
 ---
@@ -69,10 +102,14 @@ The dataset contains approximately **45,000 news articles**.
 
 ## 🤖 Models Implemented
 
-- Logistic Regression
-- Naive Bayes
-- Random Forest
-- Linear Support Vector Machine (Best Model)
+The following machine learning models were trained and evaluated on the Fake News Detection dataset:
+
+- ✅ Logistic Regression
+- ✅ Multinomial Naive Bayes
+- ✅ Random Forest Classifier
+- ✅ Linear Support Vector Machine (Linear SVM) ⭐ **Best Performing Model**
+- ✅ K-Nearest Neighbors (KNN)
+- ✅ Multi-Layer Perceptron (Neural Network)
 
 ---
 
@@ -84,47 +121,80 @@ The dataset contains approximately **45,000 news articles**.
 | Random Forest | 97.97% |
 | Naive Bayes | 92.43% |
 | Linear SVM | **98.31%** ✅ |
+| K-Nearest Neighbors (KNN) | 87.47% |
+| Multi-Layer Perceptron (Neural Network) | 96.39% |
 
+## 🏆 Best Performing Model
+
+Among all the evaluated machine learning models, the **Linear Support Vector Machine (Linear SVM)** achieved the highest accuracy (**98.10%**) along with excellent Precision, Recall, and F1-Score.
+
+Therefore, Linear SVM was selected as the final model and deployed using **Streamlit** for real-time fake news detection.
 ---
 
 ## 📁 Project Structure
 
-```
-Fake-News-Detection-System/
-
-│── app.py
-│── README.md
-│── requirements.txt
-
-├── data/
-├── models/
-├── notebooks/
-├── outputs/
-├── presentation/
-├── report/
+```text
+News Dataset
+      │
+      ▼
+Data Cleaning & Preprocessing
+      │
+      ▼
+Text Normalization
+(Removing Stopwords, Punctuation, Lemmatization)
+      │
+      ▼
+Feature Extraction (TF-IDF)
+      │
+      ▼
+Train-Test Split
+      │
+      ▼
+Machine Learning Models
+(Logistic Regression, Naive Bayes,
+Random Forest, Linear SVM,
+KNN, Neural Network)
+      │
+      ▼
+Model Evaluation
+      │
+      ▼
+Best Model Selection
+(Linear SVM)
+      │
+      ▼
+Streamlit Deployment
 ```
 
 ---
 
-## 🚀 Installation
+## 🚀 Installation & Setup
 
-Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone <repository-link>
+git clone https://github.com/prachiposwal/Fake-News-Detection-Using-Machine-Learning.git
 ```
 
-Install dependencies
+### 2. Navigate to the Project Folder
+
+```bash
+cd Fake-News-Detection-Using-Machine-Learning
+```
+
+### 3. Install the Required Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the application
+### 4. Run the Streamlit Application
 
 ```bash
 streamlit run app.py
 ```
+
+The application will open in your default web browser.
 
 ---
 
@@ -167,24 +237,32 @@ streamlit run app.py
 
 ---
 
-## 🔮 Future Improvements
+## 🚀 Future Improvements
 
-- Deep Learning Models (LSTM/BERT)
-- Confidence Score
-- Explainable AI (SHAP/LIME)
-- Real-time News API Integration
-- Multilingual Fake News Detection
+- Implement Transformer-based models such as BERT and RoBERTa.
+- Add Explainable AI techniques using SHAP or LIME.
+- Integrate real-time news APIs for live prediction.
+- Support multilingual fake news detection.
+- Deploy the application using Docker and cloud platforms.
+- Build a user feedback mechanism for continuous model improvement.
 
 ---
 
 ## 👩‍💻 Author
 
-**Prachi**
+## 👨‍💻 Author
 
-Machine Learning | Data Science | Artificial Intelligence
+**Prachi Poswal**
+
+- GitHub: https://github.com/prachiposwal
+
+This project was developed for learning, portfolio building, and demonstrating practical applications of Machine Learning and Natural Language Processing.
 
 ---
 
 ## ⭐ Acknowledgements
 
 This project was developed as part of an end-to-end Machine Learning and Natural Language Processing portfolio.
+---
+
+⭐ If you found this project helpful, consider giving it a **Star** on GitHub!
