@@ -1,6 +1,6 @@
 ## 🚀 Live Demo
 
-🔗 https://your-app-name.streamlit.app
+🔗 https://fake-news-detection-using-machine-learning-wleefmmw33chul9nvqt.streamlit.app
 
 # 📰 Fake News Detection System
 
