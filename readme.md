@@ -158,11 +158,11 @@ streamlit run app.py
 
 ### Model Accuracy Comparison
 
-![Accuracy Comparison](images/accuracy_comparison.png)
+![Accuracy Comparison](images/accuracy_comparison.png.png)
 
 ### Linear SVM Confusion Matrix
 
-![Confusion Matrix](images/confusion_matrix_svm.png)
+![Confusion Matrix](images/confusion_matrix_svm.png.png)
 
 
 ---
