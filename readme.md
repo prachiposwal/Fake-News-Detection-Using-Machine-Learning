@@ -156,6 +156,14 @@ streamlit run app.py
 
 ![Real Prediction](images/imagesreal_prediction.png.png)
 
+### Model Accuracy Comparison
+
+![Accuracy Comparison](images/accuracy_comparison.png)
+
+### Linear SVM Confusion Matrix
+
+![Confusion Matrix](images/confusion_matrix_svm.png)
+
 
 ---
 
